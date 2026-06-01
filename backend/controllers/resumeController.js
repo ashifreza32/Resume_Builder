@@ -49,9 +49,7 @@ export const getResumeById = async (req, res) => {
         }
 
         // Response bhejte waqt extra metadata hatana [3]
-        resume.__v = undefined;
-        resume.createdAt = undefined;
-        resume.updatedAt = undefined;
+         
 
         res.status(200).json({ resume });
     } catch (error) {
