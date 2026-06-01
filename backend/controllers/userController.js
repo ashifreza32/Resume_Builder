@@ -1,6 +1,7 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import Resume from "../models/Resume.js";
 
 // Helper function to generate JWT Token [1]
 const generateToken = (id) => {
@@ -98,5 +99,27 @@ export const getUserById = async (req, res) => {
 
     } catch (error) {
         res.status(400).json({ message: error.message }); [11]
+    }
+};
+
+// Controller for getting user resumes [1]
+// GET /api/users/resumes [1]
+export const getUserResumes = async (req, res) => {
+    try {
+        // Protect middleware se mili userId ka istemal [2]
+        const userId = req.userId; 
+
+        // Database (Resume model) mein is userId se jude saare resumes dhundhna [2]
+        const resumes = await Resume.find({ userId });
+
+        // Success response ke saath resumes ki list bhejna [3]
+        return res.status(200).json({
+            resumes
+        });
+    } catch (error) {
+        // Error aane par message bhejna [1, 2]
+        return res.status(400).json({
+            message: error.message
+        });
     }
 };

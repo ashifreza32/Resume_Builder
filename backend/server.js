@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import connectDB from './configs/db.js'; // Database connect karne ke liye function
-
+import userRouter from './routes/userRoutes.js'; // User related routes
 const app = express();
 const port = process.env.PORT || 3000; // Environment variable se port lega ya default 3000 [3]
 
@@ -19,6 +19,8 @@ app.use(cors()); // Frontend ko backend se baat karne ki permission dene ke liye
 app.get('/', (req, res) => {
     res.send("Server is live");
 });
+
+app.use('/api/users', userRouter); 
 
 // Start Server
 app.listen(port, () => {
