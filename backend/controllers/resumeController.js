@@ -50,7 +50,6 @@ export const getResumeById = async (req, res) => {
 
         // Response bhejte waqt extra metadata hatana [3]
          
-
         res.status(200).json({ resume });
     } catch (error) {
         res.status(400).json({ message: error.message });
