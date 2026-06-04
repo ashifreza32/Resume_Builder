@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const resumeSchema = new mongoose.Schema({
-    // User ki ID jisse resume juda hai [1]
+    // Reference to the user who owns this resume
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
@@ -9,25 +9,25 @@ const resumeSchema = new mongoose.Schema({
     },
     title: {
         type: String,
-        default: 'untitled réumé' // Default title [2]
+        default: 'untitled réumé'
     },
     public: {
         type: Boolean,
-        default: false // By default resume private rahega [2]
+        default: false // Resumes are private by default
     },
     template: {
         type: String,
-        default: 'classic' // Default template [2]
+        default: 'classic'
     },
     ascentColor: {
         type: String,
-        default: '#000000' // Template ka theme color [2, 3]
+        default: '#000000'
     },
     professionalSummary: {
         type: String,
         default: ''
     },
-    skills: [String], // Skills ki array [3]
+    skills: [String],
     personalInfo: {
         image: { type: String, default: '' },
         fullName: { type: String, default: '' },
@@ -37,7 +37,7 @@ const resumeSchema = new mongoose.Schema({
         location: { type: String, default: '' },
         linkedIn: { type: String, default: '' },
         website: { type: String, default: '' }
-    }, [3, 4]
+    },
     experience: [
         {
             company: String,
@@ -47,14 +47,14 @@ const resumeSchema = new mongoose.Schema({
             description: String,
             isCurrent: { type: Boolean, default: false }
         }
-    ], [4, 5]
+    ],
     projects: [
         {
             name: String,
             type: String,
             description: String
         }
-    ], [5]
+    ],
     education: [
         {
             institution: String,
@@ -63,12 +63,12 @@ const resumeSchema = new mongoose.Schema({
             graduationDate: String,
             GPA: String
         }
-    ] [5, 6]
+    ]
 }, { 
-    timestamps: true, // Create aur update ka time save karne ke liye [6]
-    minimize: false // Khali objects ko bhi database mein save rakhne ke liye [6]
+    timestamps: true, // Automatically manages createdAt and updatedAt fields
+    minimize: false  // Ensures empty objects are saved in the database
 });
 
-const Resume = mongoose.model('Resume', resumeSchema); [6]
+const Resume = mongoose.models.Resume || mongoose.model('Resume', resumeSchema);
 
 export default Resume;

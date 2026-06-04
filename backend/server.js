@@ -3,6 +3,8 @@ import cors from 'cors';
 import 'dotenv/config';
 import connectDB from './configs/db.js'; // Database connect karne ke liye function
 import userRouter from './routes/userRoutes.js'; // User related routes
+import AIRouter from './routes/AIroutes.js'; // AI related routes
+
 const app = express();
 const port = process.env.PORT || 3000; // Environment variable se port lega ya default 3000 [3]
 
@@ -20,7 +22,8 @@ app.get('/', (req, res) => {
     res.send("Server is live");
 });
 
-app.use('/api/users', userRouter); 
+app.use('/api/users', userRouter);
+app.use('/api/AI', AIRouter); 
 
 // Start Server
 app.listen(port, () => {
