@@ -22,10 +22,9 @@ const App = () => {
           dispatch(setLoading(false)); // Agar user data nahi mila to loading band karna [4]
         }
       }
-    } catch (error) {
-      console.log(error.message);
-    } finally {
-      dispatch(setLoading(false)); // Loading band karna [4]
+    } catch (error){
+      dispatch(setLoading(false))
+      console.log(error.message); // Error handling 
     }
   };
 
