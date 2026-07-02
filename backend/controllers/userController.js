@@ -46,12 +46,12 @@ export const registerUser = async (req, res) => {
         });
 
     } catch (error) {
-        res.status(400).json({ message: error.message }); [7]
+        res.status(400).json({ message: error.message }); 
     }
 };
 
-// 2. Controller for User Login [7]
-// Path: /API/users/login (POST) [7]
+// 2. Controller for User Login 
+// Path: /API/users/login (POST) 
 export const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -79,7 +79,7 @@ export const loginUser = async (req, res) => {
         });
 
     } catch (error) {
-        res.status(400).json({ message: error.message }); [9]
+        res.status(400).json({ message: error.message }); 
     }
 };
 
@@ -95,7 +95,7 @@ export const getUserById = async (req, res) => {
         }
 
         user.password = undefined;
-        res.status(200).json({ user }); [11]
+        res.status(200).json({ user }); 
 
     } catch (error) {
         res.status(400).json({ message: error.message }); [11]

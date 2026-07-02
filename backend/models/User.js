@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt'; // Yeh line missing thi [1]
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -13,14 +14,14 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true 
-        
     }
-    }, {timestamps: true}) 
+}, { timestamps: true }); [2]
 
-userSchema.methods.comparePassword =  function(password){
-    return bcrypt.compareSync(password, this.password);
+// Password compare karne ke liye method
+userSchema.methods.comparePassword = function(password) {
+    return bcrypt.compareSync(password, this.password); [1]
 }
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema); [1]
 
-export default User;
+export default User; 

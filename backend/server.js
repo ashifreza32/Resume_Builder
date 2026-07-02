@@ -3,6 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import connectDB from './configs/db.js'; // Database connect karne ke liye function
 import userRouter from './routes/userRoutes.js'; // User related routes
+import resumeRouter from './routes/resumeRoutes.js';
 import aiRouter from './routes/airoutes.js'; // AI related routes
 
 const app = express();
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/users', userRouter);
+app.use('/api/resumes', resumeRouter);
 app.use('/api/AI', aiRouter); 
 
 // Start Server
