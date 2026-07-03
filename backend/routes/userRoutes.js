@@ -13,7 +13,7 @@ userRouter.post('/register', registerUser);
 userRouter.post('/login', loginUser);
 
 // 3. User Data Fetch karne ke liye (GET)
-// Ismein 'protect' middleware user ki pehchan verify karega
+
 userRouter.get('/data', protect, getUserById);
 
 // 4. User ke banaye gaye saare resumes mangwane ke liye (GET)
