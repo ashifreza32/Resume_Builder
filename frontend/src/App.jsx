@@ -2,15 +2,15 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { login, setLoading } from './app/features/oSlice';
-import API from './config/API';
+import API from './configs/api';
 
 // Pages Import
-import Home from './pages/home';
-import Layout from './pages/layout';
-import Dashboard from './pages/dashboard';
+import Home from './pages/Home';
+import Layout from './pages/Layout';
+import Dashboard from './pages/Dashboard';
 import ResumeBuilder from './pages/resume-builder';
 import Preview from './pages/preview';
-import Login from './pages/login';
+import Login from './pages/Login';
 
 const App = () => {
   const dispatch = useDispatch();
