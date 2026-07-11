@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Palette, Check } from 'lucide-react';
 
 const ColorPicker = ({ selected, onChange }) => {
@@ -13,7 +13,6 @@ const ColorPicker = ({ selected, onChange }) => {
         { name: 'Purple', value: '#9333ea' },
         { name: 'Black', value: '#000000' }
     ];
-
     return (
         <div className="relative">
             <button 
