@@ -1,4 +1,5 @@
 import { Sparkles, Loader2 } from 'lucide-react';
+
 const ProfessionalSummaryForm = ({ data, onchange, generateSummary, isGenerating }) => {  
     return (
         <div className="space-y-4">
