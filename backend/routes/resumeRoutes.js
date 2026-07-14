@@ -9,7 +9,9 @@ import {
 import protect from '../middlewares/authMiddleware.js'; // Token verification ke liye
 import upload from '../configs/multer.js'; // Image upload handle karne ke liye
 
+
 const resumeRouter = express.Router();
+
 
 // 1. Naya Resume banane ke liye (POST)
 // Path: /api/resumes/create
