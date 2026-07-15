@@ -13,6 +13,7 @@ export const createResume = async (req, res) => {
             title
         });
 
+
         res.status(201).json({
             message: "resume created successfully",
             resume: newResume
