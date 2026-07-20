@@ -17,6 +17,6 @@ userRouter.post('/login', loginUser);
 userRouter.get('/data', protect, getUserById);
 
 // 4. User ke banaye gaye saare resumes mangwane ke liye (GET)
-userRouter.get('/resumes', protect, getUserResume);
+userRouter.get('/resumes', protect, getUserResumes);
 
 export default userRouter;
